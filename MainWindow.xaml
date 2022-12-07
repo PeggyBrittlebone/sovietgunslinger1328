@@ -1,0 +1,65 @@
+﻿<Window x:Class="pipw1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pipw1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="260" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF0A081F" Offset="0"/>
+            <GradientStop Color="#FF16123C" Offset="0.996"/>
+            <GradientStop Color="#FF241555" Offset="0.446"/>
+            <GradientStop Color="#FF2B1E7A" Offset="0.806"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Name="LowButton" Height="20" Width="20" Margin="0,5,1,0" MouseDown="LowButton_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="Assets/icon_low.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=LowButton}"
+                                             Value="True">
+                                    <Setter Property="Source" Value="Assets/icon_low_light.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Image Name="CloseButton" Height="20" Width="20" Margin="1,5,10,0" MouseDown="CloseButton_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="Assets/icon_close.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseButton}"
+                                             Value="True">
+                                    <Setter Property="Source" Value="Assets/icon_close_light.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </StackPanel>
+        </Grid>
+        <Grid Name="LogoContainer" Background="Transparent" Grid.Row="1" MouseDown="LogoContainer_MouseDown"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="80,30,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Background="#FF1B1B1C" BorderBrush="Gainsboro"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="10,30,0,0" Grid.Row="2" VerticalAlignment="Top" Width="50" Background="{x:Null}" Foreground="#FFDADADA" FontFamily="Segoe UI Black"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="80,70,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Background="#FF1B1B1C"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="40,110,0,0" Grid.Row="2" VerticalAlignment="Top" Width="77" Background="#FF252526" Height="30" Foreground="#FFDADADA" FontFamily="Segoe UI Black" FontWeight="Bold"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="10,70,0,0" Grid.Row="2" VerticalAlignment="Top" Width="66" Background="{x:Null}" Foreground="#FFDADADA" FontFamily="Segoe UI Black"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Margin="140,110,0,0" Grid.Row="2" VerticalAlignment="Top" Width="77" Background="#FF252526" Height="30" Foreground="#FFDADADA" FontFamily="Segoe UI Black" FontWeight="Bold"/>
+
+
+    </Grid>
+</Window>
